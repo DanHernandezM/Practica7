@@ -33,11 +33,10 @@ catch (FileNotFoundException e){
 try{
 DataOutputStream escritor = new DataOutputStream (new FileOutputStream("hola.bin"));
 
-
-escritor.writeInt(33465);
 escritor.writeChar('a');
-escritor.writeChar('z');
 escritor.writeShort(10);
+escritor.writeInt(33465);
+escritor.writeChar('z');
 escritor.close();
 DataInputStream lector = new DataInputStream (new FileInputStream("hola.bin"));
 System.out.println(lector.readInt());
