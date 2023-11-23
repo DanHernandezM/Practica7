@@ -30,7 +30,7 @@ escritor.close();
 }
 catch (FileNotFoundException e){
 }*/
-try{
+/*try{
 DataOutputStream escritor = new DataOutputStream (new FileOutputStream("hola.bin"));
 
 escritor.writeChar('a');
@@ -46,6 +46,21 @@ System.out.println(lector.readShort());
 escritor.close();
 }
 catch (FileNotFoundException e){} 
-catch (IOException ex) {}
+catch (IOException ex) {}*/
+
+
+try{
+ObjectInputStream
+lector = new ObjectInputStream(new FileInputStream("web.obj"));
+PrintWriter escritor = new PrintWriter("main.html");
+WebMaker pagina = (WebMaker)(lector.readObject());
+escritor.print(pagina.printPage());
+lector.close();
+escritor.close();
+
+}
+catch(FileNotFoundException e){}
+catch (IOException e) {}
+catch(ClassNotFoundException e){}
 }
 }
